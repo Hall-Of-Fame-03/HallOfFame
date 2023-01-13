@@ -1,10 +1,11 @@
 import React from "react";
 import "./dashboard.css";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import List from '../components/List';
-import girl from '../images/girl.png';
 import { UserAuth } from "../context/AuthContext";
+import { getAuth } from "firebase/auth";
+
+
 
 const Dashboard = () => {
   const { logOut, user } = UserAuth();
@@ -17,6 +18,21 @@ const Dashboard = () => {
     }
   };
 
+  
+  const auth = getAuth();
+  const User = auth.currentUser;
+  var photoURL;
+  var email;
+  var displayName;
+  
+  if (User !== null) {
+    displayName = User.displayName;
+    email = User.email;
+    photoURL = User.photoURL;
+  }
+
+
+
   return (
     <div className="w-[300px] m-auto">
       <div className="Navbar">
@@ -28,19 +44,19 @@ const Dashboard = () => {
           <h2>Personal Information</h2>
           <div className="personContainer">
             <img
-              src={girl}
+              src={photoURL}
               alt="user"
               className="person"
             />
           </div>
           <div className="Info">
-            <h4>Name</h4>
+            <h4>{displayName}</h4>
             <br></br>
             <h4>Year</h4>
             <br></br>
             <h4>Branch</h4>
             <br></br>
-            <h4>Email ID</h4>
+            <h4>{email}</h4>
           </div>
         </div>
         <div className="achievements">
@@ -65,6 +81,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };

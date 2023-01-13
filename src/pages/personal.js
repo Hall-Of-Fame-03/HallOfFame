@@ -2,14 +2,22 @@ import React from "react";
 import './personal.css';
 import NavBar from "../components/Navbar";
 
+/*please add a feature to upload image in this form 
+as well as the original image that shall be displayed
+will be from the google image of  the user which is 
+not uploaded for all users. Also add a feature to
+scale/resize this image so that it can be showed clearly.
+Also change the look of this form as per the add acheivement 
+form for uniformity.
+*/
+
 const edit = () => {
   return (
     <>
 
-    <NavBar />
+    <NavBar/>
 
       <div className='details'>
-        {/* <h3 class="mb-2 text-primary">Personal Details</h3> */}
   
         <div className='info'>
           <div class="name">
@@ -28,14 +36,6 @@ const edit = () => {
             <label for="email">Email ID   </label>
             <input type="text" class="form-control" id="email" placeholder="Enter Email ID" />
           </div>
-          <div class="website">
-            <label for="website">Website   </label>
-            <input type="text" class="form-control" id="website" placeholder="Enter url to your Website" />
-          </div>
-          <div class="profile">
-            <label for="profile">Profile Description   </label>
-            <input type="text" class="form-control" id="profile" placeholder="Enter Profile Description" />
-          </div>
           <div className='Buttons'>
             <div className="updateButton">
               <button type="submit" className="updateButtons">Update</button>
@@ -47,12 +47,6 @@ const edit = () => {
           </div>
 
         </div>
-
-
-
-
-
-
 
       </div>
 

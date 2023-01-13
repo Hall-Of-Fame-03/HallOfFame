@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./About.css";
 import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookIcon from '@mui/icons-material/Facebook';
+// import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import download from '../images/logo.png';
 import hall from '../images/hall.png';
 import muskan from '../images/muskan.jpg';
 import anamika from '../images/anamika.jpg';
-import ridhi from '../images/ridhi.jpg';
+import ridhi from '../images/riddhi.jpg';
 import alka from '../images/alka.jpg';
 import upasana from '../images/upasana.jpg';
 import NavBar from "../components/Navbar";
@@ -91,7 +91,7 @@ function Tabs() {
                 <img src={ridhi} className="ridhi" />
               </div>
               <div className="flip-cardr-back">
-                <h2 className="all">Ridhi</h2>
+                <h2 className="all">Riddhi</h2>
                 <h3 className="ridhid" >Web Developer</h3>
                 <h4 className="ridhid">Majoring in Computer Science @ IGDTUW</h4>
 
