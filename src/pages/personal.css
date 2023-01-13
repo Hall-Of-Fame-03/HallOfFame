@@ -1,172 +1,98 @@
- /* .App {
-  text-align: center;
+body {
   background-color: black;
-}  */
-body{
-    background-color: black;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  } */ 
-  
-  /* @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  } */
-  
-  /* .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  } */
-  /* 
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  } */
-  /* .editProfile{
-    background-image: url(https://images.pexels.com/photos/2579916/pexels-photo-2579916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
-    width: 100%;
-    height:610px;
-    align-items: center;
-    
-  
-  } */
-  
-  
-  
-  .details{
-    height:80vh;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
 
-    position: fixed;
-    margin: 2vh 40vw;
-    box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.961), 0 2px 6px rgba(0, 0, 0, 0.15);
-    color: aliceblue;
-    background-color: #152238;
+.details {
+  height: 80vh;
+
+  position: fixed;
+  margin: 2vh 40vw;
+  box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.961), 0 2px 6px rgba(0, 0, 0, 0.15);
+  color: rgb(5, 5, 5);
+  background-color: #f2f4f6;
+  display: flex;
+  flex-direction: row;
+  font-family: "Roboto", sans-serif;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.info {
+  text-align: left;
+  padding: 20px;
+  width: 280px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 2vh;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+.Buttons {
+  margin-top: 20px;
+  display: flex;
+}
+.updateButton {
+  position: relative;
+  letter-spacing: 1px;
+  margin: 8px 40px;
+  font-size: 1rem;
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  left: -20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 20px;
+}
+.cancelButton {
+  position: relative;
+  /* color: #975C8D; */
+  letter-spacing: 1px;
+  margin: 8px 40px;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  /* background: #863A6F; */
+  font-weight: 600;
+  left: -20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 20px;
+  /* box-shadow: 20px 0px 40px 0px  #D989B5; */
+}
+
+/* .cancelButton:hover {
+  left: 0;
+  width: 140px;
+  box-shadow: 0px 0px 20px 0px #d989b5;
+}
+.updateButton:hover {
+  left: 0;
+  width: 140px;
+  box-shadow: 0px 0px 20px 0px #d989b5;
+} */
+
+@media screen and (max-width: 480px) and (min-width: 320px) {
+  .details {
     display: flex;
     flex-direction: row;
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Roboto', sans-serif;
-    border-radius: 25px;
-    align-items: center;
-  
   }
-  
-  /* .person{
-    margin-top: 60%;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    border: .25rem solid black
-    
-  } */
-  
-  .info{
-    text-align: left;
-    padding: 20px;
-    width: 280px;
-    
-  }
-  
-  
-  input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    height: 2vh;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    box-sizing: border-box;
-  }
-  .Buttons{
-    margin-top: 20px;
-    display: flex;
-    
-  }
-  .updateButton{
-    position: relative;
-    /* color: #975C8D; */
-    letter-spacing: 1px;
-    margin: 8px 40px;
-    font-size: 18px;
-    padding: 10px;
-    text-align: center;
-    transition: 0.5s;
-    border-radius: 10px;
-    cursor: pointer;
-    border-radius: 25px;
-    border: none;
-    /* background: #863A6F; */
-    font-weight: 600;
-    left: -20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 20px;
-    /* box-shadow: 20px 0px 40px 0px  #D989B5; */
-    
-  }
-  .cancelButton{
-    position: relative;
-    /* color: #975C8D; */
-    letter-spacing: 1px;
-    margin: 8px 40px;
-    font-size: 18px;
-    padding: 10px;
-    text-align: center;
-    transition: 0.5s;
-    border-radius: 10px;
-    cursor: pointer;
-    border-radius: 25px;
-    border: none;
-    /* background: #863A6F; */
-    font-weight: 600;
-    left: -20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 20px;
-    /* box-shadow: 20px 0px 40px 0px  #D989B5; */
-  }
-  .cancelButton:hover{
-    left: 0;
-    /* color: #fff; */
-    width: 140px;
-    box-shadow: 0px 0px 20px 0px  #D989B5;
-  }
-  .updateButton:hover{
-    left: 0;
-    /* color: #fff; */
-    width: 140px;
-    box-shadow: 0px 0px 20px 0px  #D989B5;
-  }
-  @media screen and (max-width:480px) and (min-width:320px) {
-    .details{
-      display: flex;
-      flex-direction: row;
-    }
-    
-  }
-  
-  
-  
-  
-  
-  
+}
