@@ -1,13 +1,30 @@
 import express from "express";
-import { register, login, logout, updatePassword, deleteMyProfile, myProfile, getUserProfile, getAllUsers, forgotPassword, resetPassword, getMyPost, getUserPosts, updateProfile, followUser } from "../controllers/user.js";
+import {
+  register,
+  login,
+  logout,
+  updatePassword,
+  deleteMyProfile,
+  myProfile,
+  getUserProfile,
+  getAllUsers,
+  forgotPassword,
+  resetPassword,
+  getMyPost,
+  getUserPosts,
+  updateProfile,
+  followUser,
+  whoami,
+} from "../controllers/user.js";
 import { isAuthenticated } from "../utils/Auth.js";
-
 
 const router = express.Router();
 
-router.post("/register", register,);
+router.post("/register", register);
 
 router.post("/login", login);
+
+router.get("/whoami", whoami);
 
 router.get("/logout", logout);
 
@@ -33,4 +50,4 @@ router.put("/password/reset/:token", resetPassword);
 
 router.get("/follow/:id", isAuthenticated, followUser);
 
-export default router
+export default router;
