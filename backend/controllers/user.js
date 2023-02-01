@@ -41,7 +41,9 @@ export const register = async (req, res) => {
 export const whoami = async (req, res) => {
   try {
     const cookie = req.headers.cookie;
-    res.setHeader("Access-Control-Allow-Credentials", true);
+    //console.log(cookie);
+    res.set('Access-Control-Allow-Origin', '*');
+    //res.setHeader("Access-Control-Allow-Credentials", true);
     if (!cookie) {
       return res.status(401).json({
         success: false,
@@ -88,7 +90,8 @@ export const whoami = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.set('Access-Control-Allow-Origin', '*');
+    //res.setHeader("Access-Control-Allow-Credentials", true);
 
     const user = await User.findOne({ email })
       .select("+password")
@@ -113,7 +116,7 @@ export const login = async (req, res) => {
 
     const payload = { ...user._doc };
 
-    console.log(payload, "payload");
+    //console.log(payload, "payload");
 
     const token = await jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "10d",

@@ -13,12 +13,12 @@ const Signin = () => {
     e.preventDefault();
 
     try {
-      // const res = await fetch(`${process.env.NEXTAPIURL}/api/user/login`, {
       const res = await fetch("/api/user/login", {
+      //const res = await fetch("/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+          //"Access-Control-Allow-Origin": "*", // Required for CORS support to work
         },
         body: JSON.stringify({
           email,
@@ -31,6 +31,8 @@ const Signin = () => {
       if (data.success === true) {
         toast.success("Login Successful");
         navigate("/dashboard");
+      } if (data.success !== true) {
+        toast.error("Login Failure");
       }
     } catch (error) {
       toast.error("Login Failed");

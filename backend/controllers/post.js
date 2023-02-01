@@ -8,7 +8,7 @@ export const createPost = async (req,res) => {
     try{
       const newPostData = {
         achievement_desc: req.body.achievement_desc,
-        owner: req.user._id,
+        owner: req.user.id,
         issuer_organisation: req.body.issuer_organisation,
         issue_date: req.body.issue_date,
         category: req.body.category,
@@ -18,7 +18,7 @@ export const createPost = async (req,res) => {
   
       const post = await Post.create(newPostData);
   
-      const user = await User.findById(req.user._id);
+      const user = await User.findById(req.user.id);
   
       user.posts.unshift(post._id);
   
@@ -49,7 +49,7 @@ export const deletePost = async (req,res) => {
           });
         }
     
-        if (post.owner.toString() !== req.user._id.toString()) {
+        if (post.owner.toString() !== req.user.id.toString()) {
           return res.status(401).json({
             success: false,
             message: "Unauthorized",
@@ -58,7 +58,7 @@ export const deletePost = async (req,res) => {
     
         await post.remove();
     
-        const user = await User.findById(req.user._id);
+        const user = await User.findById(req.user.id);
     
         const index = user.posts.indexOf(req.params.id);
         user.posts.splice(index, 1);
@@ -82,32 +82,35 @@ export const deletePost = async (req,res) => {
 export const likeUnlikePost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
-    
+        //console.log(post);
         if (!post) {
           return res.status(404).json({
             success: false,
             message: "Post not found",
           });
         }
+        //console.log(req.user.id);
     
-        if (post.likes.includes(req.user._id)) {
-          const index = post.likes.indexOf(req.user._id);
-    
+        if (post.likes.includes(req.user.id)) {
+          const index = post.likes.indexOf(req.user.id);
           post.likes.splice(index, 1);
+          //console.log(index);
 
           post.totalLikes --;
     
           await post.save();
+          //console.log("here2");
     
           return res.status(200).json({
             success: true,
             message: "Post Unliked",
           });
         } else {
-          post.likes.push(req.user._id);
+          post.likes.push(req.user.id);
           post.totalLikes ++;
     
           await post.save();
+          //console.log("here");
     
           return res.status(200).json({
             success: true,
@@ -137,7 +140,7 @@ export const updatePostDesc = async (req, res) => {
             });
         }
       
-        if (post.owner.toString() !== req.user._id.toString()) {
+        if (post.owner.toString() !== req.user.id.toString()) {
             return res.status(401).json({
               success: false,
               message: "Unauthorized",
@@ -195,7 +198,7 @@ export const commentOnPost = async (req, res)=>{
         // Checking if comment already exists
     
         post.comments.forEach((item, index) => {
-          if (item.user.toString() === req.user._id.toString()) {
+          if (item.user.toString() === req.user.id.toString()) {
             commentIndex = index;
           }
         });
@@ -212,7 +215,7 @@ export const commentOnPost = async (req, res)=>{
           });
         } else {
           post.comments.push({
-            user: req.user._id,
+            user: req.user.id,
             comment: req.body.comment,
           });
     
@@ -247,7 +250,7 @@ export const deleteComment = async(req, res) => {
     
         // Checking If owner wants to delete
     
-        if (post.owner.toString() === req.user._id.toString()) {
+        if (post.owner.toString() === req.user.id.toString()) {
           if (req.body.commentId === undefined) {
             return res.status(400).json({
               success: false,
@@ -271,7 +274,7 @@ export const deleteComment = async(req, res) => {
           });
         } else {
           post.comments.forEach((item, index) => {
-            if (item.user.toString() === req.user._id.toString()) {
+            if (item.user.toString() === req.user.id.toString()) {
               return post.comments.splice(index, 1);
             }
           });
@@ -338,13 +341,15 @@ export const getallPost = async (req,res)=>{
 //Get Post of Following
 export const getPostOfFollowing = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user.id);
+    //console.log(req.user.id);
 
     const posts = await Post.find({
       owner: {
         $in: user.following,
       },
     }).populate("owner likes comments.user");
+    //console.log(posts);
 
     res.status(200).json({
       success: true,

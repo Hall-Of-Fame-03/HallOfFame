@@ -7,16 +7,12 @@ import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Form from "./pages/Form";
 import Edit from "./pages/personal";
-import Protected from "./components/Protected";
-import { useDispatch } from "react-redux";
-import { loadUser } from "./Actions/User";
+//import Protected from "./components/Protected";
+//import { useDispatch } from "react-redux";
+//import { loadUser } from "./Actions/User";
 //import { AuthContextProvider } from './context/AuthContext';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadUser());
-  });
 
   return (
     <div>

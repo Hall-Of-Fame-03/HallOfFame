@@ -1,10 +1,13 @@
-import React , {useContext} from 'react';
+import React , {useContext, useState, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import mainLogo from'../images/logo.png';
 import 'bootstrap/dist/css/bootstrap.css';
-import profile from "../images/girl.png"
+import profile from "../images/girl.png";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 
 //import {UserAuth} from '../context/AuthContext'
 
@@ -21,6 +24,42 @@ const NavBar = () => {
     }
   }
   */
+
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  async function getUser() {
+    const res = await fetch("/api/user/whoami", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      },
+      credentials: "include",
+    });
+    const data = await res.json();
+    if (data.success === true) {
+      setUser(data.user);
+    }
+  }
+
+  async function handleLogOut() {
+    const res = await fetch("/api/user/logout", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      },
+      credentials: "include",
+    });
+    toast.success("Logout Successful");
+    navigate("/signin");
+  }
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+
 
   return (
           <>
@@ -42,11 +81,21 @@ const NavBar = () => {
                   </Nav>
 
 
-                  <Nav className="gap-2">
+                  {user 
+                  ? <Nav className="gap-2">
+                    <Nav.Link className="btn btn-black" href="/achievements">Home</Nav.Link>
+                    <Nav.Link className="btn btn-black" href="/About">About</Nav.Link>
+                    <Nav.Link className="btn btn-black" onClick={handleLogOut}>LogOut</Nav.Link>
+                    <Nav.Link className="btn btn-black" href="/dashboard">
+                    <img alt="" src={profile} width="40" height="40" className="d-inline-block align-top" />{' '} </Nav.Link> 
+                    </Nav>
+
+                  : <Nav className="gap-2">
                     <Nav.Link className="btn btn-black" href="/achievements">Home</Nav.Link>
                     <Nav.Link className="btn btn-black" href="/About">About</Nav.Link>
                     <Nav.Link className="btn btn-black" href="/signin">Login</Nav.Link>
                     </Nav>
+                  }
 
                 </Navbar.Collapse>
               </Container>

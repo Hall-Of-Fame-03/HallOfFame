@@ -28,6 +28,7 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.7.0",
     "reactstrap": "^9.1.5",
+    "stream": "^0.0.2",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
