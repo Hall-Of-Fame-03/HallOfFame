@@ -6,15 +6,15 @@ const router = express.Router();
 
 router.post("/post/upload", isAuthenticated, createPost);
 
-router.get("/post/:id", isAuthenticated, likeUnlikePost);
+router.get("/like/:id", isAuthenticated, likeUnlikePost);
 
 router.put("/post/:id", isAuthenticated, updatePostDesc);
 
 router.delete("/post/:id", isAuthenticated, deletePost);
 
-router.put("/post/comment/:id", isAuthenticated, commentOnPost);
+router.put("/comment/:id", isAuthenticated, commentOnPost);
 
-router.delete("/post/comment/:id", isAuthenticated, deleteComment);
+router.delete("/comment/:id/:commentId", isAuthenticated, deleteComment);
 
 router.get("/postsf", isAuthenticated, getAllPostsfilter);
 

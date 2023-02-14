@@ -26,8 +26,7 @@ export const register = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      user,
-      token,
+      user
     });
   } catch (error) {
     res.status(500).json({
@@ -210,7 +209,7 @@ export const updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
 
-    const { name, email, course, branch, year, skillset, bio, setPublic } =
+    const { name, email, course, branch, year,  bio } =
       req.body;
 
     if (name) {
@@ -228,17 +227,12 @@ export const updateProfile = async (req, res) => {
     if (year) {
       user.year = year;
     }
-    if (skillset) {
-      user.skillset = skillset;
-    }
     if (bio) {
       user.bio = bio;
     }
-    if (setPublic) {
-      user.setPublic = setPublic;
-    }
 
     await user.save();
+    //console.log(user);
 
     res.status(200).json({
       success: true,
@@ -261,11 +255,12 @@ export const deleteMyProfile = async (req, res) => {
     const followers = user.followers;
     const following = user.following;
     const userId = user._id;
-
+    //console.log(user);
+    await cloudinary.v2.uploader.destroy(user.avatar.public_id);
     await user.remove();
 
     // Logout user after deleting profile
-    res.cookie("token", null, {
+    res.cookie("halloffame", null, {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
@@ -417,7 +412,7 @@ export const forgotPassword = async (req, res) => {
 
     const resetUrl = `${req.protocol}://${req.get(
       "host"
-    )}/api/user/password/reset/${resetPasswordToken}`;
+    )}/password/reset/${resetPasswordToken}`;
 
     const message = `Reset Your Password by clicking on the link below: \n\n ${resetUrl}`;
 
@@ -474,11 +469,18 @@ export const resetPassword = async (req, res) => {
       return next(createError(400, "Password does not password"));
     }
 
-    user.password = req.body.password;
+    if(req.body.password === req.body.confirmPassword){
+      user.password = req.body.password;    
 
-    user.resetPasswordToken = undefined;
-    user.resetPasswordExpire = undefined;
-    await user.save();
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpire = undefined;
+      await user.save();
+    } else {
+      res.status(200).json({
+        success: false,
+        message: "Passwords are not matching",
+      });
+    }
 
     res.status(200).json({
       success: true,

@@ -2,19 +2,20 @@ import express from "express";
 import {
   register,
   login,
+  whoami,
   logout,
   updatePassword,
-  deleteMyProfile,
+  updateProfile,
   myProfile,
+  deleteMyProfile,
+  getMyPost,
+  getUserPosts,
   getUserProfile,
   getAllUsers,
   forgotPassword,
   resetPassword,
-  getMyPost,
-  getUserPosts,
-  updateProfile,
-  followUser,
-  whoami,
+  followUser
+  
 } from "../controllers/user.js";
 import { isAuthenticated } from "../utils/Auth.js";
 

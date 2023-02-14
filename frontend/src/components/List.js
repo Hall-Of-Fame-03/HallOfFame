@@ -64,11 +64,11 @@ const List=()=>{
                 </div>
                 <nav>
                     <div className='list'>
-                        <NavLink exact to="/achievements" className="listItem" activeClassName="active">Home</NavLink>
-                        <NavLink exact to="/About" className="listItem" activeClassName="active">About</NavLink>
-                        <NavLink to="/edit" className="listItem" activeClassName="active">Edit Profile</NavLink>
-                        <NavLink to="/Form" className="listItem" activeClassName="active">Add Achievements</NavLink>
-                        <NavLink to="/achievements" className="listItem" activeClassName="active" onClick={handleLogOut}>Logout</NavLink>
+                        <NavLink exact="true" to="/achievements" className="listItem" activeclassname="active">Home</NavLink>
+                        <NavLink exact="true" to="/About" className="listItem" activeclassname="active">About</NavLink>
+                        <NavLink to="/edit" className="listItem" activeclassname="active">Edit Profile</NavLink>
+                        <NavLink to="/Form" className="listItem" activeclassname="active">Add Achievements</NavLink>
+                        <NavLink to="/achievements" className="listItem" activeclassname="active" onClick={handleLogOut}>Logout</NavLink>
                         
                     </div>
                 </nav>

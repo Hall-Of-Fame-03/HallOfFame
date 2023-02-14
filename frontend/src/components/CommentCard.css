@@ -1,0 +1,24 @@
+.commentUser {
+    display: flex;
+    align-items: center;
+}
+
+.commentUser > a {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.comtText {
+    color: black;
+}
+.commentUser img {
+    height: 3vmax;
+    width: 3vmax;
+    margin: 1vmax;
+    border: 3px solid;
+}
+
+.commentUser > button {
+    color:chocolate;
+}

@@ -1,11 +1,15 @@
 import User from "../models/User.js";
 import Post from "../models/Post.js";
 import ApiFeatures from "../utils/apifeatures.js";
+import cloudinary from "cloudinary";
 
 
 //Create Post
 export const createPost = async (req,res) => {
     try{
+      const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
+        folder: "posts",
+      });
       const newPostData = {
         achievement_desc: req.body.achievement_desc,
         owner: req.user.id,
@@ -13,11 +17,14 @@ export const createPost = async (req,res) => {
         issue_date: req.body.issue_date,
         category: req.body.category,
         tags: req.body.tags,
-        publicPost: req.body.publicPost
+        publicPost: req.body.publicPost,
+        image: {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        }
       };
   
       const post = await Post.create(newPostData);
-  
       const user = await User.findById(req.user.id);
   
       user.posts.unshift(post._id);
@@ -55,6 +62,8 @@ export const deletePost = async (req,res) => {
             message: "Unauthorized",
           });
         }
+
+        await cloudinary.v2.uploader.destroy(post.image.public_id);
     
         await post.remove();
     
@@ -89,7 +98,7 @@ export const likeUnlikePost = async (req, res) => {
             message: "Post not found",
           });
         }
-        //console.log(req.user.id);
+        
     
         if (post.likes.includes(req.user.id)) {
           const index = post.likes.indexOf(req.user.id);
@@ -131,7 +140,7 @@ export const updatePostDesc = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
     
-        const { achievement_desc, issuer_organisation , issue_date, tags, category, publicPost } = req.body;
+        const { achievement_desc, issuer_organisation , issue_date, category, publicPost } = req.body;
 
         if (!post) {
             return res.status(404).json({
@@ -155,9 +164,6 @@ export const updatePostDesc = async (req, res) => {
         }
         if (issue_date) {
             post.issue_date = issue_date;
-        }
-        if (tags) {
-            post.tags = tags;
         }
         if (category) {
           post.category = category;
@@ -185,7 +191,6 @@ export const updatePostDesc = async (req, res) => {
 export const commentOnPost = async (req, res)=>{
     try {
         const post = await Post.findById(req.params.id);
-    
         if (!post) {
           return res.status(404).json({
             success: false,
@@ -207,7 +212,7 @@ export const commentOnPost = async (req, res)=>{
           post.comments[commentIndex].comment = req.body.comment;
     
           await post.save();
-    
+          //console.log(post);
           return res.status(200).json({
             success: true,
             message: "Comment Updated",
@@ -218,9 +223,9 @@ export const commentOnPost = async (req, res)=>{
             user: req.user.id,
             comment: req.body.comment,
           });
-    
           post.totalComments ++ ;
           await post.save();
+          //console.log(post);
           return res.status(200).json({
             success: true,
             message: "Comment added",
@@ -247,11 +252,10 @@ export const deleteComment = async(req, res) => {
             message: "Post not found",
           });
         }
-    
         // Checking If owner wants to delete
     
         if (post.owner.toString() === req.user.id.toString()) {
-          if (req.body.commentId === undefined) {
+          if (req.params.commentId === undefined) {
             return res.status(400).json({
               success: false,
               message: "Comment Id is required",
@@ -259,7 +263,7 @@ export const deleteComment = async(req, res) => {
           }
     
           post.comments.forEach((item, index) => {
-            if (item._id.toString() === req.body.commentId.toString()) {
+            if (item._id.toString() === req.params.commentId.toString()) {
               return post.comments.splice(index, 1);
             }
           });

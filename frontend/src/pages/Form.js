@@ -10,79 +10,150 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
-
+import { Button } from 'react-bootstrap';
+import { async } from '@firebase/util';
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 
 function Form() {
 
-    const [team, setTeam] = Rect.useState('');
-    const [Achievement_cat, setAchievement_cat] = Rect.useState('');
-    const [year, setYear] = Rect.useState('');
-    const [achievement, setAchievement] = Rect.useState('');
-    var t = Date();
-    const auth = getAuth();
-    const user = auth.currentUser;
-    var displayName = user.displayName;
-    var email;
-    var photoURL;
-    var userid;
+    // const [team, setTeam] = Rect.useState('');
+    // const [Achievement_cat, setAchievement_cat] = Rect.useState('');
+    // const [year, setYear] = Rect.useState('');
+    // const [achievement, setAchievement] = Rect.useState('');
+    // var t = Date();
+    // const auth = getAuth();
+    // const user = auth.currentUser;
+    // var displayName = user.displayName;
+    // var email;
+    // var photoURL;
+    // var userid;
 
-    if (user !== null) {
-    // The user object has basic properties such as display name, email, etc.
+    // if (user !== null) {
+    // // The user object has basic properties such as display name, email, etc.
     
-    email = user.email;
-    photoURL = user.photoURL;
-    //emailVerified = user.emailVerified;
+    // email = user.email;
+    // photoURL = user.photoURL;
+    // //emailVerified = user.emailVerified;
 
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-      userid = user.uid;
-    }
+    // // The user's ID, unique to the Firebase project. Do NOT use
+    // // this value to authenticate with your backend server, if
+    // // you have one. Use User.getToken() instead.
+    //   userid = user.uid;
+    // }
   
-    const userCollectionRef = collection(firestore, "achievements")
+    // const userCollectionRef = collection(firestore, "achievements")
 
-    const handleachievement = (event) => {
-        setAchievement(event.target.value);
-    };
+    // const handleachievement = (event) => {
+    //     setAchievement(event.target.value);
+    // };
 
-    const handleteam = (event) => {
-        setTeam(event.target.value);
-    };
+    // const handleteam = (event) => {
+    //     setTeam(event.target.value);
+    // };
 
-    const handleyear = (event) => {
-        setYear(event.target.value);
-    };
+    // const handleyear = (event) => {
+    //     setYear(event.target.value);
+    // };
 
-    const handleSelect = (event) => {
-        setAchievement_cat(event.target.value);
-    };
+    // const handleSelect = (event) => {
+    //     setAchievement_cat(event.target.value);
+    // };
 
 
-    const handleSubmit = () => {
-        console.log( Achievement_cat, year, team, achievement,t);
-        addDoc(userCollectionRef,{
-            name : displayName,
-            category : Achievement_cat,
-            year : year,
-            team : team,
-            achievement : achievement,
-            createdAt: t, 
-            uid : userid,
-            email : email,
-            photo : photoURL
-        })
+    // const handleSubmit = () => {
+    //     console.log( Achievement_cat, year, team, achievement,t);
+    //     addDoc(userCollectionRef,{
+    //         name : displayName,
+    //         category : Achievement_cat,
+    //         year : year,
+    //         team : team,
+    //         achievement : achievement,
+    //         createdAt: t, 
+    //         uid : userid,
+    //         email : email,
+    //         photo : photoURL
+    //     })
+    // }
+
+    // const handleCancel = () => {
+    //     <link to="/Dashboard" />
+    // }
+
+    const navigate = useNavigate();
+    const [image, setImage] = useState(null);
+    const [achievement_desc, setDesc] = useState(null);
+    const [category, setCategory] = useState(null);
+    const [issuer_organisation, setOrganisaton] = useState(null);
+    const [date, setDate] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const Reader = new FileReader();
+        Reader.readAsDataURL(file);
+        Reader.onload= (e) => {
+            if(Reader.readyState ===2) {
+                setImage(Reader.result);
+            }
+        };
+    }
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await fetch("/api/post/post/upload", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                //"Access-Control-Allow-Origin": "*", // Required for CORS support to work
+              },
+              body: JSON.stringify({
+                image,
+                achievement_desc,
+                category,
+                issuer_organisation,
+                date
+              }),
+              credentials: "include",
+              mode: "cors",
+            });
+            const data = await res.json();
+            if (data.success === true) {
+              toast.success("Post Created")
+              navigate("/dashboard");
+            } if (data.success !== true) {
+              toast.error(data.message);
+            }
+          } catch (error) {
+            toast.error("Post Creation Failed -An unexpected error occurred");
+          }
     }
 
     const handleCancel = () => {
-        <link to="/Dashboard" />
+        navigate("/dashboard");
     }
 
     return (
         <>
-        <div className="form">
+
+        <form onSubmit={submitHandler}>
+            <h1>Add Achievement</h1>
+            
+            {image && <img src={image} alt="post" />}
+            <input type="file" accept='image/*' onChange={handleImageChange} />
+            <input type="text" placeholder='Describe your achievement' value={achievement_desc} onChange={(e) => setDesc(e.target.value)} />
+            <input type="text" placeholder='Category' value={category} onChange={(e) => setCategory(e.target.value)} />
+            <input type="text" placeholder='Issuer Organisation' value={issuer_organisation} onChange={(e)=> setOrganisaton(e.target.value)} />
+            <input type="text" placeholder='Issue Date- DD/MM/YYYY' value={date} onChange={(e)=> setDate(e.target.value)} />
+
+            <Button type="submit">Post</Button>
+            <Button type="cancel" onClick={() => handleCancel()}>Back</Button>
+        </form>
+
+        {/* <div className="form">
           <div className="Achievement_cat">
             <label className="form__label"></label>
                             <div>
@@ -184,8 +255,9 @@ function Form() {
             </div>
 
             
-        </div>
+        </div> */}
         {/* < Footer /> */}
+
         </>
 
     )

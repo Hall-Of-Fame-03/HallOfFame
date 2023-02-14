@@ -1,32 +1,34 @@
 import React, { useState, createContext, useEffect } from "react";
-import { data } from "../data";
-import Card from "../components/Card";
-import Button from "../components/Button";
+//import { data } from "../data";
+//import Card from "../components/Card";
+import { Button } from "react-bootstrap";
 import NavBar from "../components/Navbar";
 import User from "../components/User";
 import Post from "../components/Post.jsx";
 //import LoginProvider from "../components/LoginProvider";
 import './achieve.css';
 import Loader from "../components/Loader";
+import { async } from "@firebase/util";
 
 
 
-function Achieve() {
+const Achieve = () => {
 
     const [posts, setPost] = useState(null);
     const [users, setAllUsers] = useState(null);
+    const [name, setName] = useState(null);
 
 
-    const [cards, setCards] = useState(data);
-    const cats = ["all", ...new Set(data.map((card) => card.category))];
+    // const [cards, setCards] = useState(data);
+    // const cats = ["all", ...new Set(data.map((card) => card.category))];
 
-    const filter = (cat) => {
-        if (cat === "all") {
-            setCards(data);
-            return;
-        }
-        setCards(data.filter((item) => item.category === cat));
-    };
+    // const filter = (cat) => {
+    //     if (cat === "all") {
+    //         setCards(data);
+    //         return;
+    //     }
+    //     setCards(data.filter((item) => item.category === cat));
+    // };
 
     async function getPostOfFollowing() {
         const res = await fetch("/api/post/posts/following", {
@@ -45,8 +47,26 @@ function Achieve() {
         }
       }
 
-      async function getAllUsers() {
-        const res = await fetch("/api/user/users", {
+      async function getAllUsers(name="") {
+        const res = await fetch(`/api/user/users?keyword=${name}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+          },
+          credentials: "include",
+        });
+        const data = await res.json();
+        if (data.success === true) {
+            setAllUsers(data.users);
+        } else {
+            <Loader/>
+        }
+      }
+
+      async function searchHandler(e) {
+        e.preventDefault();
+        const res = await fetch(`/api/user/users?keyword=${name}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -76,7 +96,7 @@ function Achieve() {
             
             <h1>HALL OF FAME</h1>
             <div className="home">
-            <Button categories={cats} handleClick={filter} />
+            {/* <Button categories={cats} handleClick={filter} /> */}
             {/* <Card allcards={cards} /> */}
 
             loading?<Loader/>: (
@@ -103,14 +123,18 @@ function Achieve() {
                 
             </div>
             )
-    
-        loading? <Loader/>: (
+
+            <form onSubmit={searchHandler}>
+              <input type="text" value={name} placeholder="Search Name" onChange={(e)=> setName(e.target.value)} />
+              <Button type="submit">Search</Button>
+
+              loading? <Loader/>: (
             <div className="homeright">
             {
             users && users.length > 0 ? users.map((user)=>(
-            <div color="white" key={"user.id"}>
+            <div color="white" key={user._id}>
             <User
-              userId={user.id}
+              userId={user._id}
               name={user.name}
               avatar={user.avatar}
             />
@@ -120,6 +144,8 @@ function Achieve() {
             }
             </div>
             )
+            </form>
+    
       </div>
         </div>
     );

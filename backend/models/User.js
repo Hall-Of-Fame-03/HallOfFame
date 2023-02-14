@@ -6,6 +6,10 @@ import validator from "validator";
 
 const UserSchema = new mongoose.Schema(
   {
+    avatar: {
+      public_id: String,
+      url: String,
+    },
     name: {
       type: String,
       required: [true, "Please enter a name"],
@@ -36,9 +40,6 @@ const UserSchema = new mongoose.Schema(
     },
     year: {
       type: Number,
-    },
-    skillset: {
-      type: [String],
     },
     bio: {
       type: String,

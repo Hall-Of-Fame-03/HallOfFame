@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import axios from 'axios';
 import "./signin.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -8,13 +9,13 @@ const Signin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const loginHandler = async (e) => {
     e.preventDefault();
 
     try {
       const res = await fetch("/api/user/login", {
-      //const res = await fetch("/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,14 +31,18 @@ const Signin = () => {
       const data = await res.json();
       if (data.success === true) {
         toast.success("Login Successful");
+        setError(null);
         navigate("/dashboard");
       } if (data.success !== true) {
-        toast.error("Login Failure");
+        setError(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Login Failed");
+      setError('An unexpected error occurred');
+      toast.error("Login Failed-An unexpected error occurred");
     }
   };
+
 
   return (
     <div className="box">
@@ -46,7 +51,7 @@ const Signin = () => {
         <p className="text"> TO THE HALL OF FAME </p>
 
         <div>
-          <form method="POST">
+          <form method="POST" onSubmit={loginHandler}>
             <input
               type="email"
               placeholder="Email"
@@ -64,13 +69,14 @@ const Signin = () => {
             <Link to="/forgot/password">
               <p>Forgot Password</p>
             </Link>
-            <button type="submit" onClick={loginHandler}>
+            <button type="submit">
               {" "}
               Login
             </button>
-            <Link to="/register">
+            <Link to="/signup">
               <p>New User?</p>
             </Link>
+            {error && <p>{error}</p>}
           </form>
 
           {/* <GoogleButton onClick={handleGoogleSignIn} /> */}
