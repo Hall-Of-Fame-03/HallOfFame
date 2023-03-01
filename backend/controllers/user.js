@@ -394,6 +394,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
+
 //Forget Password
 export const forgotPassword = async (req, res) => {
   try {
