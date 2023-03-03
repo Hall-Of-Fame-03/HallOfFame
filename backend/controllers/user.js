@@ -41,7 +41,8 @@ export const whoami = async (req, res) => {
   try {
     const cookie = req.headers.cookie;
     //console.log(cookie);
-    res.set('Access-Control-Allow-Origin', '*');
+    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.set("Access-Control-Allow-Credentials", "true");
     //res.setHeader("Access-Control-Allow-Credentials", true);
     if (!cookie) {
       return res.status(401).json({
@@ -89,7 +90,8 @@ export const whoami = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    res.set('Access-Control-Allow-Origin', '*');
+    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.set("Access-Control-Allow-Credentials", "true");
     //res.setHeader("Access-Control-Allow-Credentials", true);
 
     const user = await User.findOne({ email })
