@@ -155,45 +155,53 @@ const Post = ({
 
         <div className="postbox">
             <div className="PostHeader">
+                <div  className="postPicIcon">
+                    <Avatar className="pic" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Uder" 
+                        
+                    />
+
+                </div>
+                
+                <Link className="postUName" to={`/user/${ownerId}`}>
+                    <h4 className="PUN">{ownerName}</h4>
+                </Link>
                 {isAccount ? (
-                    <Button onClick={()=>setDescToggle(!descToggle)}>
+                    <Button className="postThreeDotButton" onClick={()=>setDescToggle(!descToggle)}>
                         <MoreVert />
                     </Button>
                 ):null}
             </div>
-            <img src={postImage} alt="Post" height="400px" weight="600px" />
+            <img className="postImage" src={postImage} alt="Post" height="400px" weight="600px" />
             <div className="PostDetails">
-                <Avatar src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Uder" sx={{
-                    height: "3vmax",
-                    width: "3vmax",
-                }} />
-                <Link to={`/user/${ownerId}`}>
-                    <p>{ownerName}</p>
-                </Link>
+                
                 <p className="desc">{desc}</p>
             </div>
-            <button style={{
-                border: "none",
-                backgroundColor: "white",
-                cursor: "pointer"
-                }}
-                onClick={()=>setUserLikes(!userLikes)}
-                disabled={likes.length === 0 ? true:false}
-            >
-                <p> {likes.length} likes </p>
-            </button>
             <p>{issue_org}</p>
-            <p>{category}</p>
+            <p className="category">{category}</p>
             <p>{tags}</p>
+            
+            
             <div className="postFooter">
-                <Button onClick={handleLike}>
+                <Button className="likeButton" onClick={handleLike}>
                     {liked ? <Favorite style={{ color:"pink"}}/> : <FavoriteBorder/>}
                 </Button>
-                <Button onClick={()=> setCommentToggle(!commentToggle)}>
+                <Button /*style={{
+                    border: "none",
+                    backgroundColor: "white",
+                    cursor: "pointer"
+                    }} */
+                    className="likeCount"
+                    onClick={()=>setUserLikes(!userLikes)}
+                    disabled={likes.length === 0 ? true:false}
+                >
+                    <p className="lc"> {likes.length} likes </p>
+                </Button>
+                <Button className="commentButton" onClick={()=> setCommentToggle(!commentToggle)}>
                     <ChatBubbleOutline />
                 </Button> 
+                
                 {isDelete ? (
-                    <Button onClick={deletePostHandler}>
+                    <Button className="deleteButton" onClick={deletePostHandler}>
                     <DeleteOutline />
                 </Button>
                 ): null }
