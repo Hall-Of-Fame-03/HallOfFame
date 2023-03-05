@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import axios from 'axios';
-import "./signin.css";
+
+import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Avatar } from "@mui/material";
@@ -67,16 +68,18 @@ return (
       <div>
         <form method="POST" onSubmit={registerHandler}>
 
-          <Avatar src={avatar} alt="User" sx={{ height:"10vmax", width:"10vmax" }} />
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <Avatar src={avatar} alt="User" sx={{ height:"10vmax", width:"10vmax" }} className="avatar" />
+          <input type="file" className="file" accept="image/*" onChange={handleImageChange} />
           <input
             type="text"
+            className="name"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
+            className="email"
             placeholder="Email"
             required
             value={email}
@@ -84,16 +87,17 @@ return (
           />
           <input
             type="password"
+            className="password"
             placeholder="Password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">
+          /><br/>
+          <button type="submit" className="submit">
             Register
           </button>
           <Link to="/signin">
-              <p>Already Registered?</p>
+              <p className="already">Already Registered?</p>
           </Link>
           {error && <p>{error}</p>}
         </form>
