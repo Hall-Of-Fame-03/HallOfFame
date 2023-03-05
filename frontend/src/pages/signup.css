@@ -1,0 +1,275 @@
+.box{
+    align-items: center;
+  }
+  
+  
+  .mainContainer {
+    display: flex;
+    margin-top: 15vh;
+    margin-left: 20vw;
+    padding-left:190px;
+    align-items: center;
+    flex-direction: column;
+    height:75vh;
+    width: 60vw;
+    background: #8e7f7f;
+   
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+    border-top-color: rgba(161, 9, 9, 0.5);
+border-left-color: rgba(173, 42, 42, 0.5);
+border-bottom-color: rgba(166, 60, 60, 0.5);
+border-right-color: rgba(125, 28, 28, 0.5);
+   
+
+    border-radius: 10px;
+    color: #030030;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+     @media (min-width: 700px) and (max-width: 1000px) {
+      height: 50vh;
+      margin-left: 5vw;
+    }
+    @media (min-width: 1000px) and (max-width: 2000px) {
+      height: 55vh;
+    }
+    @media (min-width: 2000px) and (max-width: 3000px) {
+      height: 60vh;
+    }
+  }
+  
+  .welcomeText {
+    margin-top: 0.5vh;
+    font-size: 4rem;
+    align-items: center;
+    padding-right:160px;
+    font-weight:bolder;
+    letter-spacing: 0.1rem;
+    @media (min-width: 0px) and (max-width: 350px) {
+      font-size: 2rem;
+      font-weight: 700;
+      /* margin: 1.5rem 1rem 0 1rem; */
+    }
+    @media (min-width: 350px) and (max-width: 700px) {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-left:60px;
+      /* margin: 2rem 1rem 0 1rem; */
+    }
+    @media (min-width: 1000px) and (max-width: 2000px) {
+      font-size: 4rem;
+    }
+    @media (min-width: 2000px) and (max-width: 3000px) {
+      font-size: 6rem;
+      font-weight: 900;
+    }
+  }
+  .text {
+    /* margin: 3rem 3rem 4rem 3rem; */
+    margin-top: 1vh;
+    margin-left:15px;
+    align-items: center;
+    font-size: 2rem;
+    font-weight:bolder;
+    padding-right:160px;
+
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.1rem;
+    @media (min-width: 0px) and (max-width: 350px) {
+      font-size: 1rem;
+      font-weight: 900;
+      margin: 1.1rem 1rem 2rem 1rem;
+    }
+    @media (min-width: 350px) and (max-width: 500px) {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin: 0.5rem 8rem 4rem 9rem;
+    }
+    @media (min-width: 500px) and (max-width: 700px) {
+      font-size: 1rem;
+      font-weight: 900;
+      margin: 1.5rem 1rem 4rem 1rem;
+    }
+    @media (min-width: 700px) and (max-width: 1000px) {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 1.5rem 1rem 4rem 1rem;
+    }
+    @media (min-width: 1000px) and (max-width: 2000px) {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 1.5rem 1rem 2rem 1rem;
+    }
+    @media (min-width: 2000px) and (max-width: 3000px) {
+      font-size: 4rem;
+      font-weight: 900;
+      margin: 3rem 1rem 3rem 1rem;
+    }
+  }
+  
+  .InputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+    margin-bottom:20px;
+    margin-left:20px;
+  }
+  
+  .email{
+    margin-right:10px;
+    border-color: #030030;
+    line-height:25px;
+   border-radius:20px;
+   padding-left:10px;
+    
+  }
+  .password{
+    border-color: #030030;
+    line-height:25px;
+    border-radius:20px;
+    padding-left:10px;
+  }
+  .forgot{
+    color:rgb(50, 65, 180);
+    text-decoration:none;
+    margin-top:10px;
+    font-weight: bold;
+    font-size:15px;
+  }
+  .forgot:hover{
+    color:black;
+    font-weight: bold;
+  }
+  .new{
+    color:rgb(50, 65, 180);
+    text-decoration:underline;
+    font-weight: bold;
+    font-size:15px;
+  }
+  .new:hover{
+    color:black;
+  }
+  .login{
+    font-size:20px;
+  }
+  .ButtonContainer {
+    margin-left:20px;
+    width: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:20px;
+  }
+  
+  .LoginWith {
+    cursor: pointer;
+    margin: 2.3rem 0 1rem 0;
+    text-transform: none;
+    margin-left:20px;
+  }
+  
+  .IconsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.5rem 9 3rem 0;
+    width: 80%;
+  }
+  
+  .ForgotPassword {
+    cursor: pointer;
+    height: 1rem;
+    color: #ffff;
+    text-transform: none;
+    margin: 0 1rem 0 0;
+  }
+  .avatar{
+    font-size:20px;
+    
+  }
+  .file{
+    font-size:15px;
+    margin-left:5px;
+    margin-top:10px;
+    border-color:#030030;
+    font-weight:bolder;
+    border-radius:5px;
+   margin-bottom:5px;
+  }
+  .name{
+    min-width: 20%;
+max-width:80%;
+    margin-left:50px;
+    align-items: center;
+    margin-top:10px;
+    font-weight:bold;
+  }
+
+  .submit{
+    border-color:#030030;
+    background-color: rgb(39, 55, 241);
+    padding-left:10px;
+    padding-right:10px;
+    border-radius:10px;
+   margin-right:20px;
+    color:white;
+    font-size:35px;
+    font-weight:bolder;
+  }
+  .already{
+    color:black;
+    text-decoration:underline;
+    font-size:15px;
+    font-weight:bolder;
+    margin-left:5px;
+    margin-top:10px;
+  }
+  .already:hover{
+    color:white;
+  }
+  @media screen and (max-width:720px){
+    .avatar{
+        margin-left:5px;
+        margin-top:10px;
+    }
+    .welcomeText {
+        font-size:40px;
+        padding-right:20px;
+    }
+    .text{
+        padding-right:20px;
+    }
+.email{
+    margin-right:2px;
+    margin-bottom:10px;
+}
+.submit{
+    margin-left:5px;
+}
+.mainContainer {
+    display: flex;
+    margin-top: 18vh;
+    margin-left: 9vw;
+    align-items: center;
+    padding-left:10px;
+    flex-direction: column;
+    height: 60vh;
+    width: 80vw;
+    background: #9d9797;
+
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+    border-top-color: rgba(161, 9, 9, 0.5);
+border-left-color: rgba(173, 42, 42, 0.5);
+border-bottom-color: rgba(166, 60, 60, 0.5);
+border-right-color: rgba(125, 28, 28, 0.5);
+
+      border-radius: 10px;
+    color: #030030;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+  }
