@@ -54,6 +54,7 @@ const Signin = () => {
           <form method="POST" onSubmit={loginHandler}>
             <input
               type="email"
+              className="email"
               placeholder="Email"
               required
               value={email}
@@ -61,20 +62,21 @@ const Signin = () => {
             />
             <input
               type="password"
+              className="password"
               placeholder="Password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <Link to="/forgot/password">
-              <p>Forgot Password</p>
+              <p className="forgot">Forgot Password</p>
             </Link>
-            <button type="submit">
+            <button type="submit" className="login">
               {" "}
               Login
             </button>
             <Link to="/signup">
-              <p>New User?</p>
+              <p className="new">New User?</p>
             </Link>
             {error && <p>{error}</p>}
           </form>
