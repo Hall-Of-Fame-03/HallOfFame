@@ -6,11 +6,11 @@
 .mainContainer {
   display: flex;
   margin-top: 20vh;
-  margin-left: 20vw;
+  margin-left: 10vw;
   align-items: center;
   flex-direction: column;
   height: 50vh;
-  width: 60vw;
+  width: 40vw;
   background: #ffffff;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   backdrop-filter: blur(8.5px);
@@ -18,27 +18,15 @@
   color: #030030;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  @media (min-width: 0px) and (max-width: 700px) {
-    height: 45vh;
-    margin-left: 5vw;
-  }
-  @media (min-width: 700px) and (max-width: 1000px) {
-    height: 50vh;
-    margin-left: 5vw;
-  }
-  @media (min-width: 1000px) and (max-width: 2000px) {
-    height: 55vh;
-  }
-  @media (min-width: 2000px) and (max-width: 3000px) {
-    height: 60vh;
-  }
+ 
+  
 }
 
 .welcomeText {
   margin-top: 3vh;
   font-size: 4rem;
   align-items: center;
-  font-weight: 300;
+  font-weight:bolder;
   letter-spacing: 0.1rem;
   @media (min-width: 0px) and (max-width: 350px) {
     font-size: 2rem;
@@ -48,6 +36,7 @@
   @media (min-width: 350px) and (max-width: 700px) {
     font-size: 2rem;
     font-weight: 700;
+    margin-left:60px;
     /* margin: 2rem 1rem 0 1rem; */
   }
   @media (min-width: 1000px) and (max-width: 2000px) {
@@ -60,10 +49,11 @@
 }
 .text {
   /* margin: 3rem 3rem 4rem 3rem; */
-  margin-top: 6vh;
+  margin-top: 4vh;
+  margin-left:15px;
   align-items: center;
   font-size: 2rem;
-  font-weight: 300;
+  font-weight:bolder;
   align-items: center;
   justify-content: center;
   letter-spacing: 0.1rem;
@@ -75,7 +65,7 @@
   @media (min-width: 350px) and (max-width: 500px) {
     font-size: 1.2rem;
     font-weight: 900;
-    margin: 0.5rem 1rem 4rem 1rem;
+    margin: 0.5rem 8rem 4rem 9rem;
   }
   @media (min-width: 500px) and (max-width: 700px) {
     font-size: 1rem;
@@ -104,28 +94,91 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 20%;
+  height: 30%;
   width: 100%;
+  margin-bottom:20px;
+  margin-left:20px;
 }
+@media screen and(max-width:720px){
+  .email{
+    margin-left:20px;
+  }
+  .forgot{
+    font-size:20px;
+  }
+}
+.email{
+  margin-right:10px;
+  border-color: #030030;
+  line-height:20px;
+  margin-top:20px;
 
+}
+.password{
+  border-color: #030030;
+  line-height:20px;
+  
+  margin-right:90px;
+}
+.forgot{
+  color:rgb(50, 65, 180);
+  text-decoration:none;
+  margin-top:10px;
+  font-weight:bolder;
+  font-size:15px;
+  
+
+}
+.forgot:hover{
+  color:black;
+  font-weight: bold;
+}
+.new{
+  color:rgb(50, 65, 180);
+  text-decoration:underline;
+  font-weight: bold;
+  font-size:15px;
+  margin-top:20px;
+ 
+}
+.new:hover{
+  color:black;
+}
+.login{
+ 
+  border-color:#030030;
+    background-color:rgb(8, 8, 8);
+    padding-left:10px;
+    padding-right:10px;
+    border-radius:10px;
+    
+    color:white;
+    font-size:30px;
+    font-weight:bolder;
+}
+.login:hover{
+  background-color: rgb(39, 55, 241) ;
+}
 .ButtonContainer {
-  margin: 1.5rem 0.2rem 0.5rem 0;
+  margin-left:20px;
   width: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom:20px;
 }
 
 .LoginWith {
   cursor: pointer;
   margin: 2.3rem 0 1rem 0;
   text-transform: none;
+  margin-left:20px;
 }
 
 .IconsContainer {
   display: flex;
   justify-content: space-evenly;
-  margin: 0.5rem 0 3rem 0;
+  margin: 0.5rem 9 3rem 0;
   width: 80%;
 }
 
@@ -135,4 +188,22 @@
   color: #ffff;
   text-transform: none;
   margin: 0 1rem 0 0;
+}
+@media screen and (max-width:720px){
+  .mainContainer {
+    display: flex;
+    margin-top: 20vh;
+    margin-left: 10vw;
+    align-items: center;
+    flex-direction: column;
+    height: 30vh;
+    width: 40vw;
+    background: #ffffff;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    color: #030030;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }  
 }
