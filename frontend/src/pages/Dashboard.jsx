@@ -124,7 +124,8 @@ const Dashboard = () => {
     <div className="Main">
       <div className="personalInfo">
         <br></br>
-        <h4>Personal Information </h4>
+        <br></br> 
+        <h4 className="PersonalInformation">Personal Information </h4>
         <div className="personContainer">
           <img
             src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
@@ -139,28 +140,36 @@ const Dashboard = () => {
           <br></br>
           <h5>{user ? user.branch : 'Loading...'}</h5>
           <br></br>
-          <h5>{user ? user.email : 'Loading...'}</h5> 
-          <div>
-          <button onClick={()=>setFollowersToggle(!followersToggle)}>
-            <h6>Followers</h6>
-          </button>
-          <h6 style={{color:"white"}}>{user ? user.followers.length : 'Loading...'}</h6>
+          <h5 className="emailad">{user ? user.email : 'Loading...'}</h5> 
+          <div className="followingfollowers">
+            <div>
+            <button className="FollowersButton" onClick={()=>setFollowersToggle(!followersToggle)}>
+              <h6 >Followers</h6>
+            </button>
+            <h6 style={{color:"white"}}>{user ? user.followers.length : 'Loading...'}</h6>
+            </div>
+            <div>
+            <button className="FollowersButton" onClick={()=>setFollowingToggle(!followingToggle)}>
+              <h6>Following</h6>
+            </button>
+            <h6 style={{color:"white"}}>{user ? user.following.length : 'Loading...'}</h6>
+            </div>
+
           </div>
-          <div>
-          <button  onClick={()=>setFollowingToggle(!followingToggle)}>
-            <h6>Following</h6>
-          </button>
-          <h6 style={{color:"white"}}>{user ? user.following.length : 'Loading...'}</h6>
-          </div>
-          <div>
-          <h6>Posts</h6>
+          
+          <div className="PostButton">
+          <h6 className="Posts1">Posts</h6>
           <h6 style={{color:"white"}}>{user ? user.posts.length : 'Loading...'}</h6>
           </div>
+          <div className="buttonss">
+            {/* <Button className="logoutButton" onClick={handleLogOut}>Logout</Button> */}
+            {/* <Button onClick={handleProfileEdit}>Edit Profile</Button> */}
+            <Button className="logoutButton" onClick={handleChangePassword}>Change Password</Button>
+            <Button variant="text" className="deleteMyProfile" onClick={handleProfileDelete}>Delete My Profile</Button>
 
-          <Button onClick={handleLogOut}>Logout</Button>
-          <Button onClick={handleProfileEdit}>Edit Profile</Button>
-          <Button onClick={handleChangePassword}>Change Password</Button>
-          <Button variant="text" style={{ color: "red", margin: "2vmax" }} onClick={handleProfileDelete}>Delete My Profile</Button>
+            
+          </div>
+          
 
           <Dialog open={followersToggle} onClose={()=>setFollowersToggle(!followersToggle)}>
                 <div className="DialogBox">

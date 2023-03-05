@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
 
     const navigate = useNavigate();
-    const handleClick = () => navigate('/achievements');
+    const handleClick = () => navigate('/signin');
 
     return (
         <div className='hero-container'>
