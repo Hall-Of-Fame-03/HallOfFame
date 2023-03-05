@@ -3,11 +3,13 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  
 }
 .Dashboard {
   text-align: center;
   background: url(../images/background.jpg);
   font-family: "Roboto", sans-serif;
+
 }
 
 .Dashboard-logo {
@@ -51,11 +53,15 @@
   background-color: rgb(3, 22, 35);
   text-align: center;
   width: 21%;
-  height: 80.4vh;
+  height: 500px;
   color: aliceblue;
   float: left;
   position: fixed;
   font-size: 0.01rem;
+  overflow: scroll;
+}
+.personalInfo::-webkit-scrollbar{
+  display: none;
 }
 
 .achievements {
@@ -65,26 +71,29 @@
   background-color: rgb(3, 22, 35);
   text-align: center;
   width: 75%;
-  height: 450px;
+  background-size: cover;
   color: aliceblue;
   float: right;
   max-height: max-content;
+  overflow: auto;
 }
 .Main {
   display: inline-block;
   width: 100%;
   background-color: black;
   margin-top: 65px;
-  height: 1000px;
+  background-size: cover;
   padding: 5px;
+  overflow: hidden;
 }
 .Navbar {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRzNy3PBisoAIbKVXFPTSWMHdHcMcHmDUngw&usqp=CAU);
   position: fixed;
   top: 0;
   width: 100%;
 }
 .Info {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .personContainer {
   border-radius: 100%;
@@ -125,4 +134,95 @@
   height: 100vh;
   padding: 2vmax;
 }
+.PostHeader{
+  background-color: #EEEEEE;
+  
+  
+}
+.btn.btn-primary{
+  background-color: darkslateblue;
+}
+.PersonalInformation{
+  margin-top: 10px;
+}
+.followingfollowers{
+  display: flex;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.FollowersButton{
+  flex: 1;
+  display: inline-block;
+  background: radial-gradient(rgba(99, 157, 223, 0.8), rgba(6, 48, 70, 0.801));
+  border-radius: 25%;
+  width: 100px;
+  margin-left: 10px;
+  
+  color:white;
+}
 
+.FollowersButton:hover{
+  margin-left: 12px;
+  background: radial-gradient(rgba(201, 110, 232, 0.8), rgba(47, 16, 62, 0.801));
+}
+.Posts1{
+  background: radial-gradient(rgba(99, 157, 223, 0.8), rgba(6, 48, 70, 0.801));
+  border-radius: 25%;
+  width: 100px;
+  height: 20px;
+  margin-left: 31%;
+ 
+
+}
+.emailad{
+  margin-bottom: 20px;
+}
+.logoutButton{
+  margin-left: 10px;
+  background: radial-gradient(rgba(99, 213, 223, 0.8), rgba(40, 168, 203, 0.801));
+  border-radius: 20%;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+
+}
+.logoutButton:hover{
+  color: black;
+  margin-left: 12px;
+  background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
+
+}
+.deleteMyProfile{
+  margin-top: 20px;
+  margin-left: 2px;
+  margin-bottom: 20px;
+  background: radial-gradient(rgba(202, 219, 218, 0.8), rgba(117, 134, 138, 0.801));
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  
+}
+.deleteMyProfile:hover{
+  color: maroon;
+}
+/* .buttonss{
+  display: block;
+} */
+/* .cpButton{
+  
+  background: radial-gradient(rgba(99, 213, 223, 0.8), rgba(40, 168, 203, 0.801));
+  border-radius: 40%;
+  color: black;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.cpButton:hover{
+  color: black;
+  margin-left: 12px;
+  background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
+} */
+
+.posts{
+  margin-bottom: 50px;
+}
