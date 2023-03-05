@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import "./forgot.css";
 
 export default function ForgotPassword() {
     const navigate = useNavigate();
@@ -42,13 +43,13 @@ export default function ForgotPassword() {
 
   return (
     <>
-        <form onSubmit={submitHandler}>
-            <h1>Reset Password</h1>
-            
-            <input type="text" placeholder='Enter your Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        <form onSubmit={submitHandler} className="form">
+            <h1 className="reset">Reset Password</h1>
+            <br/>
+            <input type="text" className="emails" required placeholder="Enter your Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-            <Button type="submit">Send Reset Password Token</Button>
-            <Button type="cancel" onClick={() => handleCancel()}>Back</Button>
+            <Button type="submit" className="submit">Send Reset Password Token</Button>
+            <Button type="cancel" className="cancel" onClick={() => handleCancel()}>Back</Button>
         </form>
 
     </>
