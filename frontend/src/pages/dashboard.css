@@ -3,13 +3,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  
 }
 .Dashboard {
   text-align: center;
   background: url(../images/background.jpg);
   font-family: "Roboto", sans-serif;
-
 }
 
 .Dashboard-logo {
@@ -60,7 +58,7 @@
   font-size: 0.01rem;
   overflow: scroll;
 }
-.personalInfo::-webkit-scrollbar{
+.personalInfo::-webkit-scrollbar {
   display: none;
 }
 
@@ -90,6 +88,7 @@
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRzNy3PBisoAIbKVXFPTSWMHdHcMcHmDUngw&usqp=CAU);
   position: fixed;
   top: 0;
+  z-index: 9;
   width: 100%;
 }
 .Info {
@@ -134,27 +133,25 @@
   height: 100vh;
   padding: 2vmax;
 }
-.PostHeader{
-  background-color: #EEEEEE;
-  
-  
+.PostHeader {
+  background-color: #eeeeee;
 }
-.btn.btn-primary{
+.btn.btn-primary {
   background-color: darkslateblue;
 }
-.PersonalInformation{
+.PersonalInformation {
   margin-top: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-size: 1.5rem;
 }
-.followingfollowers{
+.followingfollowers {
   display: flex;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   font-weight: bold;
 }
-.FollowersButton{
+.FollowersButton {
   flex: 1;
   display: inline-block;
   background: radial-gradient(rgba(99, 157, 223, 0.8), rgba(6, 48, 70, 0.801));
@@ -162,53 +159,59 @@
   width: 100px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  
-  color:white;
+
+  color: white;
 }
 
-.FollowersButton:hover{
+.FollowersButton:hover {
   margin-left: 0.5rem;
-  background: radial-gradient(rgba(201, 110, 232, 0.8), rgba(47, 16, 62, 0.801));
+  background: radial-gradient(
+    rgba(201, 110, 232, 0.8),
+    rgba(47, 16, 62, 0.801)
+  );
 }
-.Posts1{
+.Posts1 {
   background: radial-gradient(rgba(99, 157, 223, 0.8), rgba(6, 48, 70, 0.801));
   border-radius: 25%;
   width: 100px;
   height: 20px;
   margin-left: 31%;
- 
-
 }
-.emailad{
+.emailad {
   margin-bottom: 20px;
 }
-.logoutButton{
+.logoutButton {
   margin-left: 10px;
-  background: radial-gradient(rgba(99, 213, 223, 0.8), rgba(40, 168, 203, 0.801));
+  background: radial-gradient(
+    rgba(99, 213, 223, 0.8),
+    rgba(40, 168, 203, 0.801)
+  );
   border-radius: 20%;
   color: black;
   font-weight: bold;
   margin-bottom: 10px;
-  
-
 }
-.logoutButton:hover{
+.logoutButton:hover {
   color: black;
   margin-left: 12px;
-  background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
-
+  background: radial-gradient(
+    rgba(104, 207, 230, 0.8),
+    rgba(54, 208, 239, 0.801)
+  );
 }
-.deleteMyProfile{
+.deleteMyProfile {
   margin-top: 20px;
   margin-left: 2px;
   margin-bottom: 20px;
-  background: radial-gradient(rgba(202, 219, 218, 0.8), rgba(117, 134, 138, 0.801));
+  background: radial-gradient(
+    rgba(202, 219, 218, 0.8),
+    rgba(117, 134, 138, 0.801)
+  );
   border-radius: 50%;
   color: black;
   font-weight: bold;
-  
 }
-.deleteMyProfile:hover{
+.deleteMyProfile:hover {
   color: maroon;
 }
 /* .buttonss{
@@ -228,22 +231,18 @@
   background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
 } */
 
-.posts{
+.posts {
   margin-bottom: 50px;
 }
 
-
-
-
 /* #responsiveness */
 
-@media only screen and (max-width: 768px){
-  .personalInfo{
+@media only screen and (max-width: 768px) {
+  .personalInfo {
     display: none;
   }
-  .achievements{
+  .achievements {
     margin-left: 10px;
-    width:96%;
+    width: 96%;
   }
-  
 }
