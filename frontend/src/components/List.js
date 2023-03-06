@@ -5,6 +5,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import './List.css';
 import toast from "react-hot-toast";
+import {FaBars, FaTimes} from "react-icons/fa";
+import { useRef } from 'react';
 //import {UserAuth} from '../context/AuthContext'
 
 const List=()=>{
@@ -18,7 +20,10 @@ const List=()=>{
     //     console.log(error);
     //   }
     // }
-
+    const navRef=useRef();
+    const showNavbar=()=>{
+      navRef.current.toggle("responsive_nav");
+    }
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
   
@@ -62,16 +67,22 @@ const List=()=>{
                 <div className='logoContainer'>
                     <img src={logo1} alt="logo" className='logo'/>
                 </div>
-                <nav>
+                <nav ref={navRef}>
                     <div className='list'>
                         <NavLink exact="true" to="/achievements" className="listItem" activeclassname="active">Home</NavLink>
                         <NavLink exact="true" to="/About" className="listItem" activeclassname="active">About</NavLink>
                         <NavLink to="/edit" className="listItem" activeclassname="active">Edit Profile</NavLink>
                         <NavLink to="/Form" className="listItem" activeclassname="active">Add Achievements</NavLink>
                         <NavLink to="/achievements" className="listItem" activeclassname="active" onClick={handleLogOut}>Logout</NavLink>
+                        <button className='nav-btn nav-close-btn' onClick={showNavbar}>
+                            <FaTimes/>
+                        </button>
                         
                     </div>
                 </nav>
+                <button className='nav-btn' onClick={showNavbar}>
+                    <FaBars/>
+                </button>
                 <div className='icons'>
                     {/* <SearchIcon className='icon'/> */}
                     {/* <PersonIcon className='icon'/>

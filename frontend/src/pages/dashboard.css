@@ -47,7 +47,7 @@
   }
 }
 .personalInfo {
-  margin: 10px;
+  margin: 0.5rem;
   border: 0px solid black;
   border-radius: 25px;
   background-color: rgb(3, 22, 35);
@@ -65,7 +65,7 @@
 }
 
 .achievements {
-  margin: 10px;
+  margin: 0.5rem;
   border: 0px solid black;
   border-radius: 25px;
   background-color: rgb(3, 22, 35);
@@ -143,11 +143,15 @@
   background-color: darkslateblue;
 }
 .PersonalInformation{
-  margin-top: 10px;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.5rem;
 }
 .followingfollowers{
   display: flex;
-  margin-left: 20px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   font-weight: bold;
 }
 .FollowersButton{
@@ -156,13 +160,14 @@
   background: radial-gradient(rgba(99, 157, 223, 0.8), rgba(6, 48, 70, 0.801));
   border-radius: 25%;
   width: 100px;
-  margin-left: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   
   color:white;
 }
 
 .FollowersButton:hover{
-  margin-left: 12px;
+  margin-left: 0.5rem;
   background: radial-gradient(rgba(201, 110, 232, 0.8), rgba(47, 16, 62, 0.801));
 }
 .Posts1{
@@ -225,4 +230,20 @@
 
 .posts{
   margin-bottom: 50px;
+}
+
+
+
+
+/* #responsiveness */
+
+@media only screen and (max-width: 768px){
+  .personalInfo{
+    display: none;
+  }
+  .achievements{
+    margin-left: 10px;
+    width:96%;
+  }
+  
 }
