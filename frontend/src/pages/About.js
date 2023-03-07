@@ -11,6 +11,7 @@ import anamika from '../images/anamika.jpg';
 import ridhi from '../images/riddhi.jpg';
 import alka from '../images/alka.jpg';
 import upasana from '../images/upasana.jpg';
+import harshita from '../images/harshita.JPG';
 import NavBar from "../components/Navbar";
 
 function Tabs() {
@@ -74,11 +75,9 @@ function Tabs() {
         <div
           className={toggleState === 2 ? "content2  active-content" : "content"}
         >
-          <img src={hall} height={200} className="hallpic" />
-
+          
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
+          Hall of Fame is a web portal that provides a platform for students of Indira Gandhi Delhi Technical University for Women (IGDTUW) to showcase their achievements in various categories such as internships, hackathons, technical programs, speakers at conferences, coding contests, non-technical programs, scholarships, internships & placements.
           </p>
         </div>
 
@@ -148,6 +147,20 @@ function Tabs() {
                 <h2 className="all">Upasana</h2>
                 <h3 className="upasanad">Web Developer</h3>
                 <h4 className="upasanad">Majoring in Information Technology @ IGDTUW</h4>
+
+              </div>
+            </div>
+          </div>
+
+          <div className="flip-cardh">
+            <div className="flip-cardh-inner">
+              <div className="flip-cardh-front">
+                <img src={harshita} height={300} width={300} className="harshita" />
+              </div>
+              <div className="flip-cardh-back">
+                <h2 className="all">Harshita</h2>
+                <h3 className="harshitad">Web Developer</h3>
+                <h4 className="harshitad">Majoring in Computer Science - Artificial Intelligence @ IGDTUW</h4>
 
               </div>
             </div>
