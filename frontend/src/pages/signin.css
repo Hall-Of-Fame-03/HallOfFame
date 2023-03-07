@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap");
 @import url(https://allfont.net/allfont.css?fonts=star-jedi);
 
 #simpleModal {
-  font-family: "Play", sans-serif;
-  background: url(../images/bg1.jpeg) center center/cover;
+  font-family: "Roboto", sans-serif;
+  background: url(../images/background.jpg) center center/cover;
   align-items: center;
 }
 
@@ -49,10 +49,10 @@
 #login_heading {
   font-weight: 200;
   line-height: 41px;
-  color: #ffffff;
+  color: white;
   padding-left: 1vw;
   margin: 0 auto;
-  font-size: 1.6vw;
+  font-size: 2vw;
 }
 
 input ::placeholder {

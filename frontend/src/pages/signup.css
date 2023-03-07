@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Play&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family= Roboto&display=swap");
 @import url(https://allfont.net/allfont.css?fonts=star-jedi);
 
 #simpleModal {
-  font-family: "Play", sans-serif;
-  background: url(../images/bg1.jpeg) center center/cover;
+  font-family: "Roboto", sans-serif;
+  background: url(../images/background.jpg) center center/cover;
   align-items: center;
 }
 
 #modalContent {
   position: absolute;
-  height: 60vh;
+  height: 75vh;
   width: 45vw;
   top: 15vh;
   margin-left: 30vw;
@@ -46,13 +46,13 @@
   margin: 0.5vw;
 }
 
-#login_heading {
-  font-weight: 200;
+#register_head {
+  font-weight: 100;
   line-height: 41px;
   color: #ffffff;
   padding-left: 1vw;
   margin: 0 auto;
-  font-size: 1.6vw;
+  font-size: 1rem;
 }
 
 input ::placeholder {
@@ -70,7 +70,7 @@ input ::placeholder {
 }
 
 .textbox ::placeholder {
-  font-size: 12px;
+  font-size: 20px;
 }
 
 #simpleModal {
@@ -177,6 +177,9 @@ input ::placeholder {
     padding: 0vw;
   }
 
+  .textbox ::placeholder {
+    font-size: 20px;
+  }
   #simpleModal .logo {
     margin: 5px;
     height: 20.5vw;
@@ -232,6 +235,9 @@ input ::placeholder {
     top: 0vw;
     right: 0vw;
     padding: 0vw;
+  }
+  .textbox ::placeholder {
+    font-size: 15px;
   }
 
   #simpleModal .logo {

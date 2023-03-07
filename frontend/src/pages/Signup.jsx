@@ -63,25 +63,24 @@ const Signup = () => {
 
   return (
     <div id="simpleModal" className="Modal">
-      <Avatar
-        src={avatar}
-        alt="User"
-        sx={{ height: "10vmax", width: "10vmax" }}
-        className="avatar"
-      />
-      //{" "}
-      <input
-        type="file"
-        className="file"
-        accept="image/*"
-        onChange={handleImageChange}
-      />
       <div className="modal-content" id="modalContent">
         <div className="modal-header" id="ModalHeader">
           <div id="register_head">WELCOME!</div>
         </div>
         <div className="modal-body" id="ModalBody">
           <form id="LRform" method="POST" onSubmit={registerHandler}>
+            <Avatar
+              src={avatar}
+              alt="User"
+              sx={{ height: "6vmax", width: "6vmax" }}
+              className="avatar"
+            />
+            <input
+              type="file"
+              className="file"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
             <div className="textbox">
               <FaUserAlt />
               <input
