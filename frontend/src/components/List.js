@@ -90,6 +90,7 @@ const List = () => {
               <NavLink to="/edit" className="listItem" activeclassname="active">Edit Profile</NavLink>
               <NavLink to="/Form" className="listItem" activeclassname="active">Add Achievements</NavLink>
               <NavLink to="/achievements" className="listItem" activeclassname="active" onClick={handleLogOut}>Logout</NavLink>
+              <NavLink to="/viewProfile" className="listItem vprofile" activeclassname="active">View Profile</NavLink>
             </Nav>
 
 
