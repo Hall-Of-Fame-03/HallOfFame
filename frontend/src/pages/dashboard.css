@@ -78,14 +78,14 @@
 .Main {
   display: inline-block;
   width: 100%;
-  background-color: black;
+  /* background-color: black; */
   margin-top: 65px;
   background-size: cover;
   padding: 5px;
   overflow: hidden;
 }
 .Navbar {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRzNy3PBisoAIbKVXFPTSWMHdHcMcHmDUngw&usqp=CAU);
+  background-color: black;
   position: fixed;
   top: 0;
   z-index: 9;
@@ -215,20 +215,20 @@
   color: maroon;
 }
 /* .buttonss{
-  display: block;
+display: block;
 } */
 /* .cpButton{
-  
-  background: radial-gradient(rgba(99, 213, 223, 0.8), rgba(40, 168, 203, 0.801));
-  border-radius: 40%;
-  color: black;
-  font-weight: bold;
-  margin-top: 20px;
+
+background: radial-gradient(rgba(99, 213, 223, 0.8), rgba(40, 168, 203, 0.801));
+border-radius: 40%;
+color: black;
+font-weight: bold;
+margin-top: 20px;
 }
 .cpButton:hover{
-  color: black;
-  margin-left: 12px;
-  background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
+color: black;
+margin-left: 12px;
+background: radial-gradient(rgba(104, 207, 230, 0.8), rgba(54, 208, 239, 0.801));
 } */
 
 .posts {

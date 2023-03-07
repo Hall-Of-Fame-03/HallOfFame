@@ -12,7 +12,7 @@ import ChangePassword from "./pages/ChangePassword";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import UserProfile from "./pages/UserProfile";
-
+import ViewProfile from "./pages/viewProfile.jsx";
 //import Protected from "./components/Protected";
 //import { useDispatch } from "react-redux";
 //import { loadUser } from "./Actions/User";
@@ -31,6 +31,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/viewProfile" element={<ViewProfile />} />
         <Route path="/change/password" element={<ChangePassword />} />
         <Route path="/forgot/password" element={<ForgotPassword />} />
         <Route path="/password/reset/:token" element={<ResetPassword />} />
