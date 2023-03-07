@@ -1,12 +1,12 @@
 .form {
-  background-color: hsla(120, 20%, 98%, 0.959);
-  /* hsla(120, 100%, 50%, 0.3); */
+  background-color: #302e3fd2;
   border-radius: 5px;
   width: 550px;
   margin: 20px auto;
   padding: 20px;
   margin-top: 15vh;
 }
+
 
 .form-body {
   text-align: left;
@@ -29,5 +29,9 @@
 }
 
 .footer {
+  text-align: center;
+}
+
+h3{
   text-align: center;
 }
