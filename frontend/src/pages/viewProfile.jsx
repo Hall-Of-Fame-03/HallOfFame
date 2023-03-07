@@ -87,13 +87,13 @@ const ViewProfile = () => {
           <List />
         </div>
         <div className="Main">
-          <div className="personalInfo">
+          <div className="PersonalInfo">
             <br></br>
             <br></br>
             <h4 className="PersonalInformation">Personal Information </h4>
             <div className="personContainer">
               <img
-                src={user ? user.avatar : "Loading..."}
+                src="https://discovery.sndimg.com/content/dam/images/discovery/editorial/podcasts/Curiosity/2020/3/GettyImages-1134062152.jpg.rend.hgtvcom.476.317.suffix/1583191585259.jpeg"
                 alt="user"
                 className="person"
               />
@@ -140,12 +140,12 @@ const ViewProfile = () => {
               <div className="buttonss">
                 {/* <Button className="logoutButton" onClick={handleLogOut}>Logout</Button> */}
                 {/* <Button onClick={handleProfileEdit}>Edit Profile</Button> */}
-                <Button className="logoutButton" onClick={handleChangePassword}>
+                <Button className="cpButton" onClick={handleChangePassword}>
                   Change Password
                 </Button>
                 <Button
                   variant="text"
-                  className="deleteMyProfile"
+                  className="DeleteMyProfile"
                   onClick={handleProfileDelete}
                 >
                   Delete My Profile
