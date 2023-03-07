@@ -123,7 +123,7 @@ const Dashboard = () => {
           <div className="personalInfo">
             <br></br>
             <br></br>
-            <h4 className="PersonalInformation">Personal Information </h4>
+            <h4 className="PersonalInformation"> </h4>
             <div className="personContainer">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
@@ -134,9 +134,9 @@ const Dashboard = () => {
             <div className="Info">
               <h5>{user ? user.name : "Loading..."}</h5>
               <br></br>
-              <h5>{user ? user.year : "Loading..."}</h5>
+              <h5>Year: {user ? user.year : "Loading..."}</h5>
               <br></br>
-              <h5>{user ? user.branch : "Loading..."}</h5>
+              <h5>Branch: {user ? user.branch : "Loading..."}</h5>
               <br></br>
               <h5 className="emailad">{user ? user.email : "Loading..."}</h5>
               <div className="followingfollowers">

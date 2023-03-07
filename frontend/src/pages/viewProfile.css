@@ -1,18 +1,23 @@
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 .personalInfo {
-    margin: 0.5rem;
-    border: 0px solid black;
-    border-radius: 25px;
-    background-color: rgb(3, 22, 35);
-    text-align: center;
-    width: 21%;
-    height: 500px;
-    color: aliceblue;
-    float: left;
-    position: fixed;
-    font-size: 0.01rem;
-    overflow: scroll;
-  }
-  .personalInfo::-webkit-scrollbar {
-    display: none;
-  }
+  margin: 0.5rem;
+  border: 0px solid black;
+  border-radius: 25px;
+  background-color: rgb(3, 22, 35);
+  text-align: center;
+  width: 70vw;
+  height: 70vh;
+  color: aliceblue;
+  float: left;
+  position: fixed;
+  font-size: 0.01rem;
+  overflow: scroll;
+}
+.personalInfo::-webkit-scrollbar {
+  display: none;
+}

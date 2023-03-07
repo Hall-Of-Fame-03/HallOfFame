@@ -12,10 +12,9 @@ import toast from "react-hot-toast";
 import "./viewProfile.css";
 //import Loader from '../components/Loader.jsx';
 
-const Dashboard = () => {
+const ViewProfile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
-  const [posts, setPost] = useState(null);
 
   const [followersToggle, setFollowersToggle] = useState(false);
   const [followingToggle, setFollowingToggle] = useState(false);
@@ -34,23 +33,6 @@ const Dashboard = () => {
       //console.log(user.followers.length);
     } else {
       navigate("/signin");
-    }
-  }
-
-  async function getMyPost() {
-    const res = await fetch("/api/user/my/posts", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        //"Access-Control-Allow-Origin": "*", // Required for CORS support to work
-      },
-    });
-    const data = await res.json();
-    if (data.success === true) {
-      setPost(data.posts);
-      //console.log(posts);
-    } else {
-      <Loader />;
     }
   }
 
@@ -93,35 +75,19 @@ const Dashboard = () => {
   function handleChangePassword() {
     navigate("/change/password");
   }
-  function handleProfileEdit() {
-    navigate("/edit");
-  }
 
   useEffect(() => {
     getUser();
-    getMyPost();
   });
 
   return (
     <>
-      {/* <div className="w-[300px] m-auto">
-        <div
-          style={{
-            color: "white",
-          }}
-        >
-          {user ? <pre>{JSON.stringify(user.name, null, 2)}</pre> : "Loading..."}
-          {user ? <pre>{JSON.stringify(user.name, null, 2)}</pre> : "Loading..."}
-
-        </div>
-      </div> */}
-
-    <div className="w-[300px] m-auto">
+      <div className="w-[300px] m-auto">
         <div className="Navbar">
           <List />
         </div>
         <div className="Main">
-            <div className="personalInfo">
+          <div className="personalInfo">
             <br></br>
             <br></br>
             <h4 className="PersonalInformation">Personal Information </h4>
@@ -186,10 +152,11 @@ const Dashboard = () => {
                 </Button>
               </div>
             </div>
-        </div> 
+          </div>
         </div>
-    </div>   
-    </>  
+      </div>
+    </>
   );
-  
 };
+
+export default ViewProfile;
