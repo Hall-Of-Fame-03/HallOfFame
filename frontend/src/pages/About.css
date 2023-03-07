@@ -18,24 +18,24 @@ margin-left:160px;
 font-size:40px;
 font-weight:bold;
 }
-@media screen and (max-width:720px){
-  .about{
-    font-size:30px;
-    margin-left:60px;
-  }
-}
+
 .container1 {
   display: flex;
   flex-direction: column;
   position: relative;
   width: 500px;
-  height: 500px;
+  height: 600px;
   font-family: 'Roboto', sans-serif;
   margin: 70px auto 0;
-  
+  margin-top:20px;
   border: 1px solid rgba(0, 0, 0, 0.274);
 }
+@media screen and (max-width:720px){
+  .container1{
+    height:800px;
 
+  }
+}
 .footer{
   margin-left: 0%;
 }
@@ -342,7 +342,7 @@ display: inline-block;
   display:inline-block;
   align-items:flex-start;
   background-color: transparent;
-  width: 140px;
+  width: 138px;
   border-radius:20px;
   height: 150px;
   border-radius:20px;
@@ -401,12 +401,12 @@ display: inline-block;
 }
 .flip-cardu {
   display:inline-block;
-  align-items:flex-start;
+ 
   background-color: transparent;
   width: 140px;
   height: 150px;
   border-radius:20px;
-  margin-left:75px;
+  margin-left:85px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 .flip-cardu-inner {
@@ -450,7 +450,68 @@ display: inline-block;
   width: 40vmin;
   border-color: #fff;
 }
+.flip-cardh {
+  display:inline-block;
+ 
+  background-color: transparent;
+  width: 140px;
+  border-radius:20px;
+  height: 150px;
+  border-radius:20px;
+  margin-left:155px;
+  margin-top:5px;
+  
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+.flip-cardh-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-cardh:hover .flip-cardh-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-cardh-front, .flip-cardh-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius:20px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-cardh-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-cardh-back {
+  background-color: rgb(104, 113, 162);
+  color: white;
+  transform: rotateY(180deg);
+}
+.harshita{
+  margin-top:0px;
+  height:150px;
+  width:140px;
+  border-radius:20px;
+}
+.harshitad{
+  text-align:center;
+ font-size:12px;
+  padding-bottom:5px;
+  padding-left:4px;
+  padding-right:2px;
+}
 /* 
 .social-container {
   
@@ -490,9 +551,10 @@ a.instagram {
 @media screen and (max-width:720px){
   .container1{
     width:300px;
-    height:500px;
+    height:900px;
     margin-left:15px;
     margin-right:0px;
+    margin-top:10px;
   }
   .tabs{
     font-size:12px;
@@ -583,6 +645,20 @@ a.instagram {
     margin-top:0px;
   }
   .flip-cardu{
+    width:120px;
+    margin-top:12px;
+    height:120px;
+    margin-left:70px;
+  }
+  .harshita{
+    width:120px;
+    height:130px;
+  }
+  .harshitad{
+    font-size:9px;
+    margin-top:0px;
+  }
+  .flip-cardh{
     width:120px;
     margin-top:12px;
     height:120px;
