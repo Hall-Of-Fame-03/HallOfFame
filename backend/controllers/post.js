@@ -330,9 +330,14 @@ export const getAllPostsfilter = async (req, res) => {
 
 
 export const getallPost = async (req,res)=>{
+  const apiFeatures = new ApiFeatures(Post.find(), req.query).search().filter();
     try{
-        const post = await Post.find().populate("owner");
-        res.status(200).json(post);
+      const post = await apiFeatures.query;
+        //const post = await Post.find().populate("owner");
+        res.status(200).json({
+          success: true,
+          post,
+        });
     } catch (error) {
         res.status(500).json({
           success: false,

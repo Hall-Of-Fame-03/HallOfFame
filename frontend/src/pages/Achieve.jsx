@@ -15,6 +15,7 @@ import { async } from "@firebase/util";
 const Achieve = () => {
 
     const [posts, setPost] = useState(null);
+    const [fposts, setFPost] = useState(null);
     const [users, setAllUsers] = useState(null);
     const [name, setName] = useState(null);
 
@@ -46,6 +47,25 @@ const Achieve = () => {
             <Loader/>
         }
       }
+
+      async function getPostFeatured() {
+        const res = await fetch("/api/post/posts?totalLikes[gt]=2", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+          },
+          credentials: "include",
+        });
+        const data = await res.json();
+        if (data.success === true) {
+            setFPost(data.post);
+            //console.log(fposts._id);
+        } else {
+            <Loader/>
+        }
+      }
+
 
       async function getAllUsers(name="") {
         const res = await fetch(`/api/user/users?keyword=${name}`, {
@@ -84,6 +104,7 @@ const Achieve = () => {
     
       useEffect(() => {
         getPostOfFollowing();
+        getPostFeatured();
         getAllUsers();
       }, []);
 
@@ -118,8 +139,25 @@ const Achieve = () => {
                 tags = {post.tags}
                 />
                 </div>
-                    )) : <h3 style={{color:"white"}}>No posts yet</h3>
-                }
+                    )) : fposts && fposts.length > 0 ? fposts.map((post)=>(
+                      <div className="posts" key={post.id}>
+                      <Post 
+              postImage="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
+              postId={post._id}
+              desc={post.achievement_desc}
+              likes = {post.likes}
+              comments = {post.comments}
+              ownerImage = "https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
+              ownerName = {post.owner.name}
+              ownerId = {post.owner._id}
+              issue_org = {post.issue_org}
+              category = {post.category}
+              tags = {post.tags}
+              />
+              </div>
+                  )) 
+                     : (<h5>No Post yet</h5>)
+              }
                 
             </div>
             )
