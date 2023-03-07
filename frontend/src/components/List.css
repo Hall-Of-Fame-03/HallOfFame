@@ -60,6 +60,9 @@ button.nav-btn{
   margin-right: 1.5rem;
   margin-left: 1em;
 }
+.listItem.vprofile{
+  display: none;
+}
 
 /* @media screen and (max-width: 1100px) {
   .icon {
@@ -101,7 +104,8 @@ button.nav-btn{
     margin-left: 60%;
     
 	}
-
+  /*  */
+  
 
 	.container container-flex nav {
 		position: fixed;
@@ -130,4 +134,9 @@ button.nav-btn{
 	}
 
 	
+}
+@media only screen and (max-width:768px){
+  .listItem.vprofile{
+    display: block;
+  }
 }
