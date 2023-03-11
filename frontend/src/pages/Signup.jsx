@@ -32,7 +32,7 @@ const Signup = () => {
           password,
         }),
         credentials: "include",
-        mode: "cors",
+        mode: "no-cors",
       });
       const data = await res.json();
       if (data.success === true) {
