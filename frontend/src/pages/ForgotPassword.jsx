@@ -12,7 +12,7 @@ export default function ForgotPassword() {
         e.preventDefault();
 
         try {
-            const res = await fetch("/api/user/forgot/password", {
+            const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/forgot/password", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
