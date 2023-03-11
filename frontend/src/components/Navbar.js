@@ -28,7 +28,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   async function getUser() {
-    const res = await fetch("/api/user/whoami", {
+    const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/whoami", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const NavBar = () => {
   }
 
   async function handleLogOut() {
-    const res = await fetch("/api/user/logout", {
+    const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/logout", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
