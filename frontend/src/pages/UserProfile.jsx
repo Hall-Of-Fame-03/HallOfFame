@@ -24,7 +24,7 @@ export default function UserProfile() {
   const params = useParams();
 
   async function getUser() {
-    const res = await fetch("/api/user/whoami", {
+    const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/whoami", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export default function UserProfile() {
   }
 
   async function getUserProfile() {
-    const res = await fetch(`/api/user/users/${params.id}`, {
+    const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/users/${params.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export default function UserProfile() {
   }
 
   async function getUserPost() {
-    const res = await fetch(`/api/user/userposts/${params.id}`, {
+    const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/userposts/${params.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export default function UserProfile() {
   }
 
   async function handleFollow() {
-    const res = await fetch(`/api/user/follow/${params.id}`, {
+    const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/follow/${params.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
