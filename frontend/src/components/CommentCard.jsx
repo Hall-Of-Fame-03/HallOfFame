@@ -20,7 +20,7 @@ export const CommentCard = ({
   const deleteCommentHandler = async (postId, commentId)=> {
     //console.log(commentId,postId);
     try{
-            const res = await fetch(`/api/post/comment/${postId}/${commentId}`, {
+            const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/post/comment/${postId}/${commentId}`, {
                 method: "DELETE",
                 headers: {
                    "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export const CommentCard = ({
   }
 
   async function getUser() {
-    const res = await fetch("/api/user/whoami", {
+    const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/whoami", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
