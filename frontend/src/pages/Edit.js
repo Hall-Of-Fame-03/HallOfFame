@@ -27,7 +27,7 @@ const Edit = () => {
     e.preventDefault();
 
     try {
-        const res = await fetch("/api/user/update/profile", {
+        const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/update/profile", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
