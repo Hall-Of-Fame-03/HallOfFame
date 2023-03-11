@@ -17,7 +17,7 @@ const Signin = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/user/login", {
+      const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
