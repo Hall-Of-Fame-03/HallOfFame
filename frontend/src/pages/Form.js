@@ -31,7 +31,7 @@ function Form() {
         e.preventDefault();
 
         try {
-            const res = await fetch("/api/post/post/upload", {
+            const res = await fetch("https://hall-of-fame-bk.onrender.com/api/post/post/upload", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
