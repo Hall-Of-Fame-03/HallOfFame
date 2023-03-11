@@ -12,7 +12,7 @@ export default function ChangePassword() {
         e.preventDefault();
 
         try {
-            const res = await fetch("/api/user/update/password", {
+            const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/update/password", {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
