@@ -13,7 +13,7 @@ export default function ResetPassword() {
         e.preventDefault();
 
         try {
-            const res = await fetch(`/api/user/password/reset/${params.token}`, {
+            const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/password/reset/${params.token}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
