@@ -32,7 +32,7 @@ const Achieve = () => {
     // };
 
     async function getPostOfFollowing() {
-        const res = await fetch("/api/post/posts/following", {
+        const res = await fetch("https://hall-of-fame-bk.onrender.com/api/post/posts/following", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const Achieve = () => {
       }
 
       async function getPostFeatured() {
-        const res = await fetch("/api/post/posts?totalLikes[gt]=2", {
+        const res = await fetch("https://hall-of-fame-bk.onrender.com/api/post/posts?totalLikes[gt]=2", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const Achieve = () => {
 
 
       async function getAllUsers(name="") {
-        const res = await fetch(`/api/user/users?keyword=${name}`, {
+        const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/users?keyword=${name}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const Achieve = () => {
 
       async function searchHandler(e) {
         e.preventDefault();
-        const res = await fetch(`/api/user/users?keyword=${name}`, {
+        const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/user/users?keyword=${name}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
