@@ -33,7 +33,7 @@ const Post = ({
     const [descToggle, setDescToggle ] = useState(false);
     const [descAch, setDescAch] = useState(desc);
     async function getUser() {
-        const res = await fetch("/api/user/whoami", {
+        const res = await fetch("https://hall-of-fame-bk.onrender.com/api/user/whoami", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const Post = ({
     }
 
     async function LikePost(postId) {
-          const res = await fetch(`/api/post/like/${postId}`, {
+          const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/post/like/${postId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const Post = ({
     const addCommentHandler = async (e)=>{
         e.preventDefault();
         try{
-            const res = await fetch(`/api/post/comment/${postId}`, {
+            const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/post/comment/${postId}`, {
                 method: "PUT",
                 headers: {
                    "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const Post = ({
     const updatePostHandler = async (e)=>{
         e.preventDefault();
         try{
-            const res = await fetch(`/api/post/post/${postId}`, {
+            const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/post/post/${postId}`, {
                 method: "PUT",
                 headers: {
                    "Content-Type": "application/json",
@@ -131,7 +131,7 @@ const Post = ({
     const deletePostHandler = async (e)=>{
         e.preventDefault();
         try{
-            const res = await fetch(`/api/post/post/${postId}`, {
+            const res = await fetch(`https://hall-of-fame-bk.onrender.com/api/post/post/${postId}`, {
                 method: "DELETE",
                 headers: {
                    "Content-Type": "application/json",
